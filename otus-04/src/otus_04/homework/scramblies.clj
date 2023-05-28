@@ -7,4 +7,6 @@
   "Функция возвращает true, если из букв в строке letters
   можно составить слово word."
   [letters word]
-  nil)
+   (every?
+     #(>= ((frequencies letters) % 0)
+          ((frequencies word) %)) word))
